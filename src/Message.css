@@ -1,4 +1,5 @@
 .message {
+    position: relative;
 padding: 10px;
 margin: 10px;
 width: fit-content;
@@ -13,11 +14,11 @@ word-break: break-all;
 }
 
 .message__userCard {
-    background-color: blue !important;
+    background-color: rgba(22, 97, 236, 0.836) !important;
 }
 
 .message__guestCard {
-    background-color: grey !important;
+    background-color: rgba(197, 197, 197, 0.589) !important;
 }
 
 .app__form {
@@ -41,4 +42,15 @@ word-break: break-all;
 
 .app__input {
     flex: 1;
+}
+.message__content {
+    position: relative;
+}
+.message__time {
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.438);
+}
+.MuiPaper-rounded { 
+    border-radius: 8px !important;
 }

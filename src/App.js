@@ -14,8 +14,10 @@ function App() {
 
   useEffect(() => {
     db.collection('messages')
-    .orderBy('timestapm', 'desc')
+    .orderBy('timestapm', 'asc')
     .onSnapshot((snapshot) => {
+      const height = document.documentElement.offsetHeight
+      document.scrollingElement.scrollTop = height
       setMesseges(snapshot.docs.map(doc => ({
         id:doc.id, 
         data: doc.data()
@@ -23,9 +25,17 @@ function App() {
     })
   }, [])
   
-  useEffect(() => {
-    setName(getName())
+  useEffect( () => {
+    const logIn = async () => {
+      setName(await getName())
+    }
+    logIn()
   }, [])
+
+  useEffect(() => {
+    document.scrollingElement.scrollTop = document.documentElement.offsetHeight
+  })
+
 
   const getName = () => {
     const name = prompt('Enter your name')
@@ -40,7 +50,8 @@ function App() {
     db.collection('messages').add({
       name, 
       text: input,
-      timestapm: firebase.firestore.FieldValue.serverTimestamp()
+      timestapm: firebase.firestore.FieldValue.serverTimestamp(),
+      local: new Date().toLocaleTimeString()
     })
     setInput('')
   }
@@ -65,7 +76,7 @@ function App() {
       <FlipMove>
        {
          messeges.map(({id, data}) => (
-          <Message key={id} curUser={name} username={data.name} message={data.text}/>
+          <Message key={id} curUser={name} username={data.name} message={data.text} time={data.local}/>
          ))
         }
       </FlipMove>

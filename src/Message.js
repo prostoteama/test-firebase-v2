@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { Card, CardContent, Typography } from '@material-ui/core'
 import './Message.css'
 
-const Message = forwardRef(({curUser, username, message}, ref) => {
+const Message = forwardRef(({curUser, username, message, time}, ref) => {
     const isUser = username === curUser
 
     return (
@@ -10,7 +10,7 @@ const Message = forwardRef(({curUser, username, message}, ref) => {
             <Card className={isUser ? 
                 'message__userCard' : 
                 'message__guestCard'}>
-                <CardContent>
+                <CardContent className="message__content">
                     <Typography
                     color="initial"
                     variant="h5"
@@ -20,6 +20,8 @@ const Message = forwardRef(({curUser, username, message}, ref) => {
                     </Typography>
                 </CardContent>
             </Card>
+            <h5 className="message__time">{time}</h5>
+
         </div>
     )
 })
