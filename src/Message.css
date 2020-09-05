@@ -21,20 +21,19 @@ word-break: break-all;
 }
 
 .app__form {
-    padding: 20px;
+    padding: 20px !important;
     position: fixed;
-    bottom: 0;
-    margin: 20px;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
     z-index: 1;
     background-color: #e7e3e0d3;
-    width: 95% ;
     border-radius: 10px;
-}
-
-.app__formControll {
+    box-sizing: border-box;
     display: flex !important;
     flex-direction: row !important;
 }
+
 
 .app__iconButton {
     flex: 0;

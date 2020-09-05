@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { FormControl, Input, IconButton } from '@material-ui/core';
+import { Input, IconButton } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send'; 
 import Message from './Message';
 import db from './firebase'
@@ -50,7 +50,6 @@ function App() {
       <h3>Hallo {name}</h3>
 
       <form className="app__form">
-        <FormControl className="app__formControll">
           <Input className="app__input" placeholder={'Enter a message'} type="text" value={input} onChange={e => setInput(e.target.value)}/>
           <IconButton 
           className="app__iconButton"
@@ -61,7 +60,6 @@ function App() {
           color="primary">
             <SendIcon/>
           </IconButton>
-        </FormControl>
       </form>
 
       <FlipMove>
